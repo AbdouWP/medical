@@ -1,0 +1,176 @@
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Tajawal:wght@200;300;400;500;700;800;900&display=swap");
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+:root {
+  --primary: #005091;
+  --secondary: #00b4f0;
+}
+html {
+  font-family: "DM Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 500;
+  font-style: normal;
+}
+body {
+  overflow-x: hidden;
+}
+
+#navbar {
+  width: 100vw;
+  min-height: 80px;
+  max-height: 150px;
+  background-color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-bottom: 1px solid lightgray;
+  position: sticky;
+  top: 0;
+  z-index: 99999;
+}
+header nav {
+  width: 90%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+#list-container {
+  display: flex;
+  align-items: center;
+}
+ul {
+  list-style: none;
+}
+li img {
+  max-width: 7.5rem;
+  height: 100%;
+  object-fit: contain;
+}
+.navigation-item {
+  color: #000;
+  margin-left: 3rem;
+  white-space: nowrap;
+  cursor: pointer;
+  font-weight: 400;
+  text-transform: capitalize;
+}
+.navigation-item:hover,
+.navigation-item.active {
+  color: var(--secondary);
+}
+.navigations {
+  display: flex;
+  gap: 8px;
+}
+.header-meta-navigation {
+  display: flex;
+  gap: 24px;
+  align-items: center;
+}
+
+#header-search {
+  padding: 14px 24px;
+  background-color: #f6f6f4;
+  font-size: 12px;
+  border: none;
+  border-radius: 9999px;
+  outline: none;
+  transition: 300ms ease-in;
+  color: var(--primary);
+}
+input[type="search"]::-webkit-search-cancel-button {
+  display: none;
+}
+
+#header-search.active {
+  padding-right: 120px;
+}
+
+.header-meta-navigation label {
+  position: absolute;
+  top: 50%;
+  right: 20px;
+  fill: var(--primary);
+  transform: translateY(-50%);
+  cursor: pointer;
+  height: 20px;
+}
+.header-langs h3 {
+  color: var(--primary);
+  font-weight: 400;
+  position: relative;
+  cursor: pointer;
+}
+.header-langs h3::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  background-color: var(--primary);
+  width: 100%;
+  height: 1px;
+}
+.header-meta-navigation span {
+  fill: var(--primary);
+  cursor: pointer;
+}
+
+.footer {
+  width: 100vw;
+  height: 75vh;
+  background-color: var(--primary);
+  position: fixed;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.footer .container {
+  width: 85%;
+  height: 80%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.main-navigation-item,
+.sec-navigation-item {
+  color: #ffffff;
+  font-weight: 600;
+  cursor: pointer;
+  margin-top: 1rem;
+  font-size: 0.85rem;
+}
+.main-navigation-item:hover,
+.sec-navigation-item:hover {
+  color: var(--secondary);
+}
+
+.divider {
+  width: 100%;
+  height: 0.5px;
+  background-color: lightgray;
+  opacity: 0.5;
+  margin-block: 4rem;
+}
+.footer-copyright {
+  display: flex;
+  justify-content: space-between;
+  color: lightgrey;
+  font-size: 0.8rem;
+}
+.header-items-pop-up {
+  width: 30vw;
+  height: 100%;
+  position: fixed;
+  /* top: 0; */
+  left: 0;
+  background-color: #f6f6f4;
+  border-right: 1px solid lightgray;
+  visibility: hidden;
+  opacity: 0;
+  color: var(--primary);
+  transition: 300ms ease-in;
+}
