@@ -29,12 +29,51 @@ const navbarItems = [
   },
 ];
 
+const userNavigationItems = [
+  {
+    title: "login",
+    href: "#",
+    icon: "./assets/user-circle-svgrepo-com.svg",
+  },
+  {
+    title: "contact us",
+    href: "#",
+    icon: "./assets/contact-details-svgrepo-com.svg",
+  },
+  {
+    title: "blog",
+    href: "#",
+    icon: "./assets/newspaper-svgrepo-com.svg",
+  },
+];
+
 window.header_state = false;
+
+function userNavigations() {
+  const element = document.getElementById("user-list-container");
+
+  userNavigationItems.map((item, index) => {
+    const listItem = document.createElement("li");
+    const link = document.createElement("a");
+
+    link.href = item.href;
+    link.innerHTML = `<span style="height: 18px">
+    <img src="${item.icon}" alt="${item.title}" style="width: 18px;height: 18px" /></span>
+                      <span>${item.title}</span>
+    `;
+    listItem.className = "user-navigation";
+
+    listItem.appendChild(link);
+    element.appendChild(listItem);
+  });
+}
 
 function navbar() {
   const element = document.getElementById("list-container");
 
   if (navbarItems.length < 1) return;
+
+  userNavigations();
 
   const div = document.createElement("div");
   div.className = "navigations";
@@ -135,8 +174,7 @@ function eventsLogicHandler() {
     document.querySelector(".header-items-pop-up").style.opacity = 1;
     document.querySelector(".header-items-pop-up").style.visibility = "visible";
   } else {
-    document.querySelector(".header-items-pop-up").style.opacity = 0;
-    document.querySelector(".header-items-pop-up").style.opacity = "hidden";
+    document.querySelector(".header-items-pop-up").removeAttribute("style");
   }
 }
 
@@ -156,6 +194,16 @@ document.addEventListener("DOMContentLoaded", () => {
     }
     if (event.target.matches("#close-popup-btn")) {
       window.header_state = false;
+      eventsLogicHandler();
+    }
+  });
+
+  document.getElementById("menu-toggle-items").addEventListener("click", () => {
+    if (window.header_state) {
+      window.header_state = false;
+      eventsLogicHandler();
+    } else {
+      window.header_state = true;
       eventsLogicHandler();
     }
   });
